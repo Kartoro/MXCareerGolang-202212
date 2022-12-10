@@ -19,3 +19,7 @@
 - Leetcode: https://leetcode.cn/
 - Golang 官方文档：https://pkg.go.dev/std
 - Go Playground: https://go.dev/play/
+
+# 第一讲
+- https://segmentfault.com/a/1190000017205604
+
