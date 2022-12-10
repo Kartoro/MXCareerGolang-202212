@@ -21,5 +21,7 @@
 - Go Playground: https://go.dev/play/
 
 # 第一讲
-- https://segmentfault.com/a/1190000017205604
+- go 学习路线图: https://www.topgoer.com/%E5%BC%80%E6%BA%90/go%E5%AD%A6%E4%B9%A0%E7%BA%BF%E8%B7%AF%E5%9B%BE.html
+- git commit 代码提交规范: https://segmentfault.com/a/1190000017205604
+- GOROOT, GOPATH, GOBIN: https://www.cnblogs.com/zhaof/p/7906722.html
 
