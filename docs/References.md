@@ -29,3 +29,7 @@
 - go 切片详解: https://draveness.me/golang/docs/part2-foundation/ch03-datastructure/golang-array-and-slice/
 - go 闭包: https://www.bilibili.com/video/BV1ma4y1e7R5/?spm_id_from=333.337.search-card.all.click&vd_source=d899c1b5ff57109b784035f3f5ee03ec
 - go 指针: https://www.topgoer.com/go%E5%9F%BA%E7%A1%80/%E6%8C%87%E9%92%88.html
+
+# 第三讲
+- go channel: https://draveness.me/golang/docs/part3-runtime/ch06-concurrency/golang-channel/
+- waitGroup vs errGroup: https://juejin.cn/post/6996300205989560333
