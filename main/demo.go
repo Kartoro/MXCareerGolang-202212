@@ -151,4 +151,91 @@ func main() {
 	}
 	fmt.Println(twoDD)
 
+	// map
+	m := make(map[string]int)
+
+	m["k1"] = 7
+	m["k2"] = 13
+
+	n := map[string]int{"key1": 33, "key2": 34}
+	fmt.Println(n["key1"])
+
+	// variable as 函数 (utility)
+	myFunc := func(a int, b int) (int, int) {
+		fmt.Println("call myFunc")
+		return a * b, a + b
+	}
+	res1, res2 := myFunc(3, 5)
+	fmt.Println(res1, res2)
+
+	//sum 可变参数
+	sum()
+	sum(1, 1, 1)
+	ok := []int{1, 2, 3}
+	sum(ok...)
+
+	//intSeq (闭包保存状态)
+	nextInt := intSeq()
+	fmt.Println(nextInt())
+	fmt.Println(nextInt())
+	fmt.Println(nextInt())
+
+	newInts := intSeq()
+	fmt.Println(newInts())
+
+	// 递归
+	fmt.Println(fact(7))
+
+	// 结构体方法
+	r := rect{10, 5}
+	fmt.Println("area: ", r.area())
+	fmt.Println("perim: ", r.perim())
+}
+
+// 函数 (plusPlus --> private; PlusPlus --> public)
+func plusPlus(a, b, c int, d, e, f string) (returnValue1 int, returnValue2 string) {
+	return a + b + c, d + e + f
+}
+
+// 可变参数 (可以使用 interface{} --> 来判断阵对不同类型)
+func sum(nums ...int) {
+	fmt.Println(nums, " ")
+	total := 0
+	for _, num := range nums {
+		total += num
+	}
+	fmt.Println(total)
+}
+
+// 闭包 intSeq函数 返回一个匿名函数， 该匿名函数入参也为空，返回一个int
+// 它通过 intSeq 将匿名函数包起来了
+func intSeq() func() int {
+	i := 0
+	return func() int {
+		i++
+		return i
+	}
+}
+
+// 递归
+func fact(n int) int {
+	if n == 0 {
+		return 1
+	}
+	return n * fact(n-1)
+}
+
+// 指针
+// 结构体
+type rect struct {
+	width, height int
+}
+
+// 结构体方法
+func (r rect) area() int {
+	return r.width * r.height
+}
+
+func (r *rect) perim() int {
+	return 2*r.width + 2*r.height
 }
