@@ -13,7 +13,6 @@
 
 # 工程相关
 - Git: https://www.liaoxuefeng.com/wiki/896043488029600
-- Go 项目结构: https://lailin.xyz/post/go-training-week4-project-layout.html
 
 # 其他参考
 - Leetcode: https://leetcode.cn/
@@ -36,3 +35,4 @@
 
 # 第四讲
 - go context: https://segmentfault.com/a/1190000040917752
+- Go 项目结构: https://lailin.xyz/post/go-training-week4-project-layout.html
