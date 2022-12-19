@@ -22,7 +22,7 @@ Environments
 
 Flow Chart
 ------------
-![image](./Flow Chart.png)
+![image]([./Flow Chart.png](https://github.com/Kartoro/MXCareerGolang-202212/blob/main/docs/UMS/Flow%20Chart.png))
 
 Architecture
 ------------
