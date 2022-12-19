@@ -10,18 +10,6 @@ Environments
 
 Flow Chart
 ------------
-User Management System
-===========================
-
-Environments
-------------
-
-* Golang(v1.14+)
-* Mysql(v5.7+)
-* Redis(v4.0+)
-
-Flow Chart
-------------
 ![](https://github.com/Kartoro/MXCareerGolang-202212/blob/main/docs/UMS/Flow%20Chart.png)
 
 Architecture
