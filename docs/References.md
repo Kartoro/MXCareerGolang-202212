@@ -36,3 +36,7 @@
 # 第四讲
 - go context: https://segmentfault.com/a/1190000040917752
 - Go 项目结构: https://lailin.xyz/post/go-training-week4-project-layout.html
+
+# 第五讲
+- go 路由：https://segmentfault.com/a/1190000020764033
+- http.FileServer 实现: https://shockerli.net/post/golang-pkg-http-file-server/

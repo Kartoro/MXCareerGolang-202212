@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ .Msg }}</title>
+</head>
+<body>
+    <div>
+        <h1>{{ .Msg }}</h1>
+        <form action="/profile" method="GET">
+            <input type="submit" name="jump_btn" value="View My Profile">
+        </form>
+        <br>
+        <form action="/index" method="GET">
+            <input type="submit" name="home_btn" value="Back to Login">
+        </form>
+    </div>
+</body>

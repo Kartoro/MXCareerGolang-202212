@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+</head>
+<body>
+<h1> User Manager System </h1>
+<div>
+    <form action="" method="POST" name="form">
+        <p>Username:<input type="text" name="username" maxlength="30"/></p>
+        <p>Password:<input type="password" name="password" maxlength="30"/></p>
+        <input type="submit" name="login_btn" value="Login" onclick="form.action='/login';form.submit();"/>
+        <input type="submit" name="signup_btn" value="Sign Up" onclick="form.action='/signup';form.submit();"/>
+        <input type="submit" name="quit_btn" value="Quit" onclick="self.close()"/>
+    </form>
+    <p>{{ .Msg }}</p>
+</div>
+</body>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Profile</title>
+</head>
+<body>
+<h1>My Profile</h1>
+<div>
+    <form action="/nickname" method="POST">
+        <p>Username:<input type="text" name="username" value="{{ .UserName }}" readonly="readonly"></p>
+        <p>Nickname:<input type="text" name="nickname" value="{{ .NickName }}" maxlength="30"/>
+            <br>
+            <br>
+            <input type="submit"
+                   name="change_btn"
+                   value="Update Nickname">
+        </p>
+    </form>
+    <form action="/avatar" method="POST" enctype="multipart/form-data">
+        <input type="text" name="username" value="{{ .UserName }}" readonly="readonly" hidden="hidden"/>
+        <img src="/static/{{ .PicName }}" height="100" width="100">
+        <p><input type="file" name="image" accept="image/png, image/jpeg"/></p>
+        <p><input type="submit" name="change_btn" value="Update Avatar"></p>
+    </form>
+</div>
+</body>
