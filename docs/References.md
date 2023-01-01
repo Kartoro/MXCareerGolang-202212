@@ -40,3 +40,12 @@
 # 第五讲
 - go 路由：https://segmentfault.com/a/1190000020764033
 - http.FileServer 实现: https://shockerli.net/post/golang-pkg-http-file-server/
+
+# 第六讲
+- go RPC: https://zhuanlan.zhihu.com/p/148139089
+- go 反射：
+  - https://juejin.cn/post/6844903559335526407#heading-3
+  - https://books.studygolang.com/gopl-zh/ch12/ch12.html
+- go 连接池：https://yusank.space/posts/conn-pool/
+- go get 失败 - 更新proxy：https://learnku.com/go/wikis/38122
+- proto gen failed：https://stackoverflow.com/questions/71707105/go-grpc-out-protoc-gen-go-grpc-plugin-failed-with-status-code-1

@@ -1,0 +1,17 @@
+// gen pb.go : protoc --go_out=. ./api.proto
+
+syntax = "proto3";
+
+package proto;
+option go_package = "../proto";
+
+message loginRequest {
+  string Username = 1;
+  string Password = 2;
+  string Nickname = 3;
+}
+
+message loginResponse {
+  int32 Ret = 1;
+  string Token = 2;
+}

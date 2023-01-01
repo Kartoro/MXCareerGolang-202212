@@ -1,8 +1,13 @@
 package http
 
 import (
+	"MXCareerGolang-202212/api/proto"
+	"MXCareerGolang-202212/api/rpc"
+	"MXCareerGolang-202212/config"
+	"errors"
 	"fmt"
 	"html/template"
+	"log"
 	"net/http"
 )
 
@@ -11,6 +16,7 @@ var (
 	profileTemplate *template.Template
 	resultTemplate  *template.Template
 
+	rpcClient *rpc.RemoteClient
 )
 
 type TemplateLoginResponse struct {
@@ -52,8 +58,19 @@ func templateResult(rw http.ResponseWriter, reply TemplateResultResponse) {
 }
 
 func Login(rw http.ResponseWriter, req *http.Request) {
-	// TODO: rpc
-	fmt.Println("Login")
+	arg, err := loginReqConvRpcArg(rw, req)
+	if err != nil {
+		log.Println(err)
+		return
+	}
+	resp := proto.LoginResponse{}
+	if err = callLogin(rw, arg, &resp); err != nil {
+		log.Println(err)
+		return
+	}
+	handleLoginRet(rw, arg, &resp)
+	log.Println("Login Done")
+
 	return
 }
 
@@ -63,3 +80,37 @@ func GetIndex(rw http.ResponseWriter, req *http.Request) {
 	}
 }
 
+func loginReqConvRpcArg(rw http.ResponseWriter, req *http.Request) (*proto.LoginRequest, error) {
+	username := req.FormValue("username")
+	password := req.FormValue("password")
+	if username == "" || password == "" {
+		errMsg := "username or password is empty"
+		templateLogin(rw, TemplateLoginResponse{errMsg})
+		return &proto.LoginRequest{}, errors.New(errMsg)
+	}
+	arg := &proto.LoginRequest{
+		Username: username,
+		Password: password,
+	}
+	return arg, nil
+}
+
+// callLogin - RPC call
+func callLogin(rw http.ResponseWriter, arg *proto.LoginRequest, resp *proto.LoginResponse) error {
+	if err := rpcClient.Call("UserServices.Login", arg, resp); err != nil {
+		log.Println(err)
+		templateLogin(rw, TemplateLoginResponse{Msg: "RPC call failed"})
+		return err
+	}
+	return nil
+}
+
+func handleLoginRet(rw http.ResponseWriter, arg *proto.LoginRequest, resp *proto.LoginResponse) {
+	switch resp.Ret {
+	case config.SUCCESS:
+		// TODO: token
+		templateLogin(rw, TemplateLoginResponse{Msg: "Login Success!"})
+	default:
+		templateLogin(rw, TemplateLoginResponse{Msg: "Login Failed!"})
+	}
+}
