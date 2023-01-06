@@ -2,32 +2,44 @@ package main
 
 import (
 	"MXCareerGolang-202212/config"
-	bff "MXCareerGolang-202212/internal/http"
+	httpService "MXCareerGolang-202212/internal/http"
+	"fmt"
 	"log"
 	"net/http"
+	_ "net/http/pprof"
 )
 
+// init - parse static html templates
 func init() {
-	log.SetFlags(log.LstdFlags | log.Lshortfile)
-	log.Println("init http service...")
-	bff.InitHttp()
+	httpService.InitHttp()
 }
 
 func main() {
-	// static file server
-	http.Handle("/static/", http.StripPrefix("/static/", http.FileServer(http.Dir("./static/images"))))
+	//go func() {
+	//	http.ListenAndServe(config.PprofAddr, nil)
+	//}()
 
-	http.HandleFunc("/login", bff.Login)
-	http.HandleFunc("/index", bff.GetIndex)
-	//http.HandleFunc("/profile", bff.Profile)
-	//http.HandleFunc("/signup", bff.SignUp)
-	//http.HandleFunc("/nickname", bff.UpdateNickname)
-	//http.HandleFunc("/avatar", bff.UploadAvatar)
-	// ...
+	log.SetFlags(log.LstdFlags | log.Lshortfile)
 
-	log.Println("http service started")
-	if err := http.ListenAndServe(config.HTTPServerAddr, nil); err != nil {
-		log.Println(err)
+	// init rpc connection
+	var err error
+	if err != nil {
+		log.Fatal("Failed to connect with rpc server!")
+		return
 	}
 
+	// static file server. NOTE: for Handle and StripPrefix, the format must be /<path>/ !!!
+	http.Handle("/static/", http.StripPrefix("/static/", http.FileServer(http.Dir("./static/images"))))
+
+	http.HandleFunc("/index", httpService.GetIndex)
+	http.HandleFunc("/profile", httpService.GetProfile)
+	http.HandleFunc("/login", httpService.Login)
+	http.HandleFunc("/signup", httpService.SignUp)
+	http.HandleFunc("/nickname", httpService.UpdateNickName)
+	http.HandleFunc("/avatar", httpService.UploadProfilePicture)
+
+	err = http.ListenAndServe(config.HTTPServerAddr, nil)
+	if err != nil {
+		fmt.Println(err)
+	}
 }

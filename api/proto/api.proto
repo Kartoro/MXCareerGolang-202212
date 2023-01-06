@@ -1,17 +1,32 @@
-// gen pb.go : protoc --go_out=. ./api.proto
-
 syntax = "proto3";
 
 package proto;
 option go_package = "../proto";
 
 message loginRequest {
-  string Username = 1;
+  string UserName = 1;
   string Password = 2;
-  string Nickname = 3;
+  string NickName = 3;
 }
 
 message loginResponse {
   int32 Ret = 1;
   string Token = 2;
 }
+
+message profileRequest {
+  string UserName = 1;
+  string Password = 2;
+  string NickName = 3;
+  string FileName = 4;
+  string Token = 5;
+}
+
+message profileResponse {
+  int32 Ret = 1;
+  string UserName = 2;
+  string NickName = 3;
+  string PicName = 4;
+}
+
+// pb.go file gen: protoc --go_out=. ./*.proto
