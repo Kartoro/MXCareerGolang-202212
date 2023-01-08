@@ -7,8 +7,8 @@ const (
 
 	// mysql
 	DSN          string = "root@tcp(127.0.0.1:3306)/ums_dev"
-	MaxIdleConns int    = 2000
-	MaxOpenConns int    = 2000
+	MaxIdleConns int    = 100
+	MaxOpenConns int    = 100
 
 	// TCP Server
 	TCPServerAddr     string = "[127.0.0.1]:8888"

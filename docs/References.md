@@ -49,3 +49,15 @@
 - go 连接池：https://yusank.space/posts/conn-pool/
 - go get 失败 - 更新proxy：https://learnku.com/go/wikis/38122
 - proto gen failed：https://stackoverflow.com/questions/71707105/go-grpc-out-protoc-gen-go-grpc-plugin-failed-with-status-code-1
+
+# 第七讲
+- httpOnly: https://www.cnblogs.com/softidea/p/6040260.html
+- 密码加密存储：https://cloud.tencent.com/developer/article/1588192
+
+# 第八讲
+- Go test: https://geektutu.com/post/quick-go-test.html
+- QPS / TPS / RT / 并发数: https://cloud.tencent.com/developer/article/1688947
+- wrk: 
+  - https://www.cnblogs.com/quanxiaoha/p/10661650.html
+  - https://testerhome.com/topics/22601
+- pprof: https://zhuanlan.zhihu.com/p/141640004

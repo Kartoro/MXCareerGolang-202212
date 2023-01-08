@@ -15,7 +15,7 @@ func main() {
 	db, _ := sql.Open("mysql", config.DSN)
 	var wg sync.WaitGroup
 	ch := make(chan int, 1000)
-	for i := 1001; i <= 10000000; i++ {
+	for i := 1; i <= 10000000; i++ {
 		ch <- 1
 		wg.Add(1)
 		go func(i int) {
